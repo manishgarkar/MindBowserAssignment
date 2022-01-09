@@ -5,7 +5,7 @@ let initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case dispatchTypes.storeUserDetails:
-            return {...state, userId:action.payload}
+            return {...state, userId:action.payload};
         default:
             return state;
     }

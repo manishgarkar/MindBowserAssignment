@@ -7,7 +7,7 @@ export default (state = initialState, action) => {
         case dispatchTypes.isLoading:
             return { ...state };
         case dispatchTypes.storeFeeds:
-            return {...state, feeds:action.payload}
+            return {...state, feeds:action.payload};
         default:
             return state;
     }
