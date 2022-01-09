@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image ,TouchableOpacity,TextInput, StyleSheet} from 'react-native';
+import { View, Text, Image ,TouchableOpacity,TextInput, StyleSheet, Modal, ActivityIndicator} from 'react-native';
 import { colors } from '../assects/colors';
 import Images from '../assects/Images';
 import { width } from '../assects/strings';
@@ -22,6 +22,18 @@ export const SearchBar = ({onChangeText }) => {
                 <Icon name="search" size={25} color={theme.colors.black} />
             </TouchableOpacity>
         </View>
+    )
+}
+export const Loader= ({visible}) =>{
+    return(
+        <Modal visible={visible} transparent={true} >
+            <View style={{flex:1,alignItems:"center",justifyContent:"center"}} >
+                <View style={{width:width/1.10,height:width/4,alignItems:"center",justifyContent:"center",backgroundColor:"#fff"}} >
+                    <ActivityIndicator size={30} color={theme.colors.rose[400]} />
+                    <Text>Loading...</Text>
+                </View>
+            </View>
+        </Modal>
     )
 }
 const styles = StyleSheet.create({

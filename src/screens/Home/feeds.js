@@ -10,8 +10,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { useDispatch, useSelector } from "react-redux";
 import { API } from "../../api";
 import { colors } from '../../assects/colors';
-import { width } from '../../assects/strings';
-import { Header, SearchBar } from "../../component";
+import { height, width } from '../../assects/strings';
+import { Header, Loader, SearchBar } from "../../component";
 import { storeFeeds } from "../../redux/actions/feeds";
 import route from "../../routes/route";
 
@@ -19,12 +19,19 @@ const Feeds = ({ navigation }) => {
     const dispatch = useDispatch();
     const { feeds } = useSelector(state => state.feeds);
     const [initialfeeds, setFeeds] = useState(feeds);
+    const [Loading, SetLoading] = useState(true);
     const [count, setCount] = useState(50);
     
+    useEffect(()=>{
+        setFeeds(feeds);
+    },[feeds])
+
     useEffect(() => {
         onHarwareBackPress()
+        SetLoading(true)
         API({ method: 'get', endpoint: 'trending', limit: count })
             .then((res) => {
+                // SetLoading(false);
                 dispatch(storeFeeds(res.data))
             })
             .catch((err) => { console.log("err", err) })
@@ -83,6 +90,7 @@ const Feeds = ({ navigation }) => {
             .catch((err) => { console.log("err", err) })
 
     }
+    
     const RenderFeeds = () => {
         return (
 
@@ -131,12 +139,13 @@ const Feeds = ({ navigation }) => {
                 <Header onBackPress={() => navigation.goBack()} />
                 <SearchBar onChangeText={(text) => searchText(text)} />
                 <RenderFeeds />
+                <Loader visible={initialfeeds.length==0 &&Loading} />
             </View>
         </NativeBaseProvider>
     )
 }
 const styles = StyleSheet.create({
     container:{ flex: 1, backgroundColor: colors.primaryColor },
-    emptyContainer:{ height: width, alignItems: "center", justifyContent: "center" }
+    emptyContainer:{ height: height/1.50, alignItems: "center", justifyContent: "center" }
 })
 export default Feeds;
