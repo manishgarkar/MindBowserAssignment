@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "792536569822",
+    "project_id": "mindbowser-c7dd2",
+    "storage_bucket": "mindbowser-c7dd2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792536569822:android:cee8fb8b355ba8cf7a6f4f",
+        "android_client_info": {
+          "package_name": "com.mindbowserassignment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "792536569822-q4pd3o15i21fivuldvf37tsu2d3d2n1b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1sLuEyyVu8xQyBKCTrk4QWBbAHPnWsbs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "792536569822-q4pd3o15i21fivuldvf37tsu2d3d2n1b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
