@@ -1,18 +1,25 @@
-import React from 'react';
-import { Image, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { Image, StyleSheet, View } from 'react-native';
 import { colors } from '../assects/colors';
 import Images from '../assects/Images';
 import { width } from '../assects/strings';
 import route from '../routes/route';
 const SplashScreen = ({navigation}) => {
   
-    setTimeout(()=>{
-        navigation.navigate(route.feed);
-    },1000);
+    useEffect(()=>{
+        setTimeout(()=>{
+            navigation.navigate(route.feed);
+        },1000);
+    },[])
+
     return (
-        <View style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: colors.primaryColor }} >
-            <Image source={Images.giphylogo} style={{ width: width / 2, height: width / 2 }} resizeMode='contain' />
+        <View style={styles.container} >
+            <Image source={Images.giphylogo} style={styles.imageView} resizeMode='contain' />
         </View>
     )
 }
+const styles = StyleSheet.create({
+    container:{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: colors.primaryColor },
+    imageView:{ width: width / 2, height: width / 2 }
+})
 export default SplashScreen;

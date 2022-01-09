@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import { View, Text, StatusBar ,StyleSheet} from 'react-native';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import Routes from './src/routes';
@@ -8,7 +8,7 @@ import { theme } from 'native-base';
 import { colors } from './src/assects/colors';
 const App = () => {
   return (
-    <View style={{ flex: 1, backgroundColor: theme.colors.black }} >
+    <View style={styles.container} >
       <StatusBar barStyle='light-content' backgroundColor={colors.primaryColor} />
       <Provider store={store} >
         <PersistGate persistor={persistor} >
@@ -18,4 +18,9 @@ const App = () => {
     </View>
   )
 }
+const styles = StyleSheet.create({
+  container:{
+    flex: 1, backgroundColor: theme.colors.black
+  }
+})
 export default App;
