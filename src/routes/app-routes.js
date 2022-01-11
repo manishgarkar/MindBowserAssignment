@@ -15,5 +15,5 @@ const AppNavigation = () =>{
             <Stack.Screen  name={route.feedDetails} component={FeedDetails} />
         </Stack.Navigator>
     )
-}
+}  
 export default AppNavigation;

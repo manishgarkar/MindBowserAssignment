@@ -1,5 +1,6 @@
 export default {
     splash:"splash",
     feed:"feed",
-    feedDetails:"feedDetails"
+    feedDetails:"feedDetails",
+    favFeed:"favFeed"
 }
