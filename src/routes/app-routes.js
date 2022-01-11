@@ -4,6 +4,7 @@ import route from './route';
 import SplashScreen from '../screens/splash';
 import Feeds from '../screens/Home/feeds';
 import FeedDetails from '../screens/Home/feedDetails';
+import FavFeeds from '../screens/Home/favFeeds';
 const Stack = createStackNavigator();
 
 
@@ -13,6 +14,8 @@ const AppNavigation = () =>{
             <Stack.Screen  name={route.splash} component={SplashScreen} />
             <Stack.Screen  name={route.feed} component={Feeds} />
             <Stack.Screen  name={route.feedDetails} component={FeedDetails} />
+            <Stack.Screen  name={route.favFeed} component={FavFeeds} />
+
         </Stack.Navigator>
     )
 }  

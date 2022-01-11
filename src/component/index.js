@@ -6,13 +6,14 @@ import { width } from '../assects/strings';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { theme } from 'native-base';
 
-export const Header = ({showBackIcon,favIcon,onBackPress,onFavIconPress}) => {
+export const Header = ({showBackIcon,favIcon,onBackPress,onFavIconPress,text}) => {
     return (
         <View style={styles.HeaderContainer} >
             <View style={{flexDirection:"row",alignItems:"center"}} >
              {showBackIcon ? <Icon onPress={onBackPress}  name='arrow-back' size={25} color={"#fff"}/> : null}
-            <Image style={styles.HeaderImage} source={Images.giphylogo} alt="title" />
+             {text ?<Text style={styles.HeaderText} >{text}</Text> : <Image style={styles.HeaderImage} source={Images.giphylogo} alt="title" />}
             </View>
+            {favIcon ? <Icon onPress={onFavIconPress}  name='heart' size={20} color={"#FF6666"}/> : null}
 
         </View>
     )
@@ -55,6 +56,7 @@ export function SearchText ({data,searchText}) {
 const styles = StyleSheet.create({
     HeaderContainer:{ width: width, height: 45,flexDirection:"row", alignItems: "center", justifyContent: "space-between",paddingHorizontal:10, backgroundColor: colors.primaryColor,borderBottomColor:theme.colors.coolGray[700],borderBottomWidth:0.5 },
     HeaderImage:{ width: width / 4, height: 20},
+    HeaderText:{color:theme.colors.white,fontWeight:"bold",marginLeft:10,fontSize:20},
     SearchBarContainer:{ width: width/1.05, height: 40, marginVertical: 10, backgroundColor: theme.colors.white, flexDirection: "row", alignSelf: "center" },
     SearchBarTextInput:{ flex: 1, paddingLeft: 10 },
     SearchBarBtn:{ width: 50, height: 40, alignItems: "center", justifyContent: "center", backgroundColor: theme.colors.pink[500] }

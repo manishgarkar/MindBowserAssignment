@@ -45,20 +45,18 @@ const Feeds = ({ navigation }) => {
 
     useEffect(() => {
         var refff = database().ref('favorites/' + userId);
-        refff.on('value', function (snapshot) {
+     refff.on('value', function (snapshot) {
             snapshot.forEach(data => {
                 data.forEach((res) => {
                   likesArray.push(res.val("fav_id"));
                 })
             })
             SetLikes(likesArray)
-            flatListRef?.current?.scrollToIndex({ animated: false, index: Index });
-
         }, function (error) {
             console.error(error);
         });
        
-    }, [navigation])
+    }, [])
 
 
     function onHarwareBackPress() {
@@ -153,6 +151,7 @@ const Feeds = ({ navigation }) => {
     }
 
     const FeedComponent = ({item}) => {
+        console.log("SHJSHJS",likesArray)
         return (
             <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate(route.feedDetails, { id: item.id ,isLiked:likesArray.filter(data=>data==item.id).length==1})} >
                 <Box borderBottomWidth="0.5" borderColor="coolGray.800" py="2" >

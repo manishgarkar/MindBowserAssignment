@@ -52,7 +52,7 @@ const FeedDetails = ({ navigation, route }) => {
                                     }}
                                 />
                                 <TouchableOpacity style={{marginLeft:10}} hitSlop={{top:10,bottom:10,left:10,right:10}} onPress={() => OnFavPress(item.id)} >
-                                    <Icon name={isLiked ? "heart":"heart-outline"} color={isLiked ?"red" :'#ececec'} size={25} />
+                                    <Icon name={isLiked ? "heart":"heart-outline"} color={isLiked ?"#FF6666" :'#ececec'} size={25} />
                                 </TouchableOpacity>
                                 <VStack p={2} >
                                     <Text color="white" bold >{item.title}</Text>
